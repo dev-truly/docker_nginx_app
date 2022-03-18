@@ -1,1 +1,1 @@
-# docker_nginx_app
+# docker_nginx_proxy_app
