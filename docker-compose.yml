@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  app:
+    image: ubuntu:latest
+    container_name: nginx_php8_laravel8
+    build:
+      context: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default:/etc/nginx/sites-available/default
+    environment:
+      TZ: Asia/Seoul
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
