@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 # ENV TZ=Asia/Seoul
 # export TZ='Asia/Seoul'
@@ -27,6 +27,12 @@ RUN apt remove composer \
     && /bin/bash -c 'source ~/.bashrc'
 
 WORKDIR /home
+
+RUN composer create-project --prefer-dist laravel/laravel laravel8 \
+    && chown -R www-data laravel8
+
+ENTRYPOINT service php8.0-fpm start \
+    && service nginx start && bash
 
 # laravel new laravel8
 # chown -R www-data laravel8
