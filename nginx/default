@@ -10,7 +10,7 @@ server {
         index index.php index.html;
 
         # 자신의 로컬 도메인 설정
-        server_name localhost;
+        server_name app;
 
         # 아래 주석처리
         #location / {
@@ -28,4 +28,7 @@ server {
                 include snippets/fastcgi-php.conf;
                 fastcgi_pass unix:/run/php/php8.0-fpm.sock;
         }
+
+        access_log /var/log/nginx/access_log.log;
+        error_log /var/log/nginx/error_log.log;
 }
